@@ -50,7 +50,7 @@ defmodule APIRouter do
     send_resp(conn, 200, json)
   end
 
-  get "/api/get_uid" do
+  get "/api/get_uids" do
     query = Query.table("bulls")
             |> Query.pluck("UID")
             |> SiresDB.run
