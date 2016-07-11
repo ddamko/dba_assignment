@@ -10,3 +10,5 @@ To make it easier I have a temporary server setup on my Digital Ocean account. U
 cd code/dba_assignment
 
 iex -S mix
+
+```
