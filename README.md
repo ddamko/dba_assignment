@@ -37,6 +37,9 @@ MergeData.merge_files(["bull-details.txt","bulls.json"])
 You can see the writen results with the Data Explorer to run ReQL queries on the table [here](http://dev.damkostudios.com:8080/#dataexplorer). Run the following query in the Data Explorer panel.
 ```
 r.db('sires').table('bulls')
+
+To delete all records run:
+r.db('sires').table('bulls').delete()
 ```
 You can change the view of that data from Tree View to Table View as well as Raw JSON data.
 
