@@ -2,8 +2,19 @@ defmodule APIRouter do
   use Plug.Router
   alias RethinkDB.Query
 
+  plug Corsica, [origins: "http://localhost:8888",
+                 allow_headers: ~w(ACCEPT Content-Type Access-Control-Allow-Origin Access-Control-Allow-Headers Access-Control-Allow-Methods)]
+
   plug :match
   plug :dispatch
+
+  get "/api/all" do
+    query = Query.table("bulls")
+            |> SiresDB.run
+
+    json = Poison.encode!(query)
+    send_resp(conn, 200, json)
+  end
 
   get "/api/active" do
     query = Query.table("bulls")

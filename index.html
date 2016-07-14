@@ -15,17 +15,13 @@
     <body>
       <table class="table table-striped">
         <tr>
-          <th>BREED</th>
-          <th>COUNTRY</th>
-          <th>IDNO</th>
+          <th>UID</th>
           <th>CODENO</th>
           <th>REGNAME</th>
         </tr>
         <tbody data-bind="foreach: rows">
           <tr>
-            <td data-bind="text: BREED"></td>
-            <td data-bind="text: COUNTRY"></td>
-            <td data-bind="text: IDNO"></td>
+            <td data-bind="text: UID"></td>
             <td data-bind="text: CODENO"></td>
             <td data-bind="text: REGNAME"></td>
           </tr>
@@ -33,9 +29,18 @@
       </table>
 
       <script>
-      jQuery.ajax({
-        method: "POST",
-        url: "http://localhost:3000",
+      var ajax = $.ajax({
+        method: "GET",
+        crossOrigin: true,
+        contentType: 'application/json',
+        url: "http://localhost:3000/api/active",
+        headers: {
+          'Access-Control-Allow-Origin' : '*',
+          'Access-Control-Allow-Methods' : 'POST, GET, OPTIONS',
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+			  },
+        cache :false,
         dataType: 'json',
         success: function(data) {
           ko.applyBindings({
@@ -43,6 +48,7 @@
           });
         }
       });
+      console.log(ajax);
       </script>
     </body>
 </html>

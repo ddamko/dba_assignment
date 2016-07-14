@@ -21,7 +21,8 @@ defmodule APIServer.Mixfile do
       {:plug, "~> 1.1"},
       {:poison, "~> 2.0"},
       {:csv, "~> 1.4.2"},
-      {:rethinkdb, "~> 0.4.0"}
+      {:rethinkdb, "~> 0.4.0"},
+      {:corsica, "~> 0.4"}
     ]
   end
 end
